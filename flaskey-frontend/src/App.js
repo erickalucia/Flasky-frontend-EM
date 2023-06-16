@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Animal from "./components/Animal";
 import AnimalList from "./components/AnimalList"
 
 
-const listOfAnimals = [
+const INITIAL_ANIMALS = [
   {
     id: 101,
     name: "Violet",
@@ -34,12 +35,13 @@ const listOfAnimals = [
 ]
 
 function App() {
+  const [animals, setAnimals] = useState(INITIAL_ANIMALS);
   // you can do a normal comment like this for javascript that isn't jsx (ie js that is not "returned" can still be //s)
   return (
     <section>
       <h1>The Sapphire Animal Adoption Agency</h1>
       <h2>Animal Listings</h2>
-      <AnimalList listOfAnimals={ listOfAnimals }></AnimalList>
+      <AnimalList listOfAnimals={animals}></AnimalList>
     </section>
 
   );
